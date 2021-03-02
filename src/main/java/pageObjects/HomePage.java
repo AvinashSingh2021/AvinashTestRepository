@@ -9,9 +9,9 @@ public class HomePage {
 	
 	public WebDriver driver;
 	
-
-	By addToCart=By.name("Add to cart");
-	By quickView=By.className("quick-view");
+	By tShirt=By.linkText("WOMEN");
+	By myAccount=By.linkText("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
+	
 	
 	
 	public HomePage(WebDriver driver) {
@@ -20,20 +20,15 @@ public class HomePage {
 		this.driver=driver;
 		
 	}
-//
-//	public WebElement getTshirtOption()
-//	{
-//		return driver.findElement(a);
-//	}
-	
-	public WebElement addToCartOption()
+
+	public WebElement selectTShirt()
 	{
-		return driver.findElement(addToCart);
+		return driver.findElement(tShirt);
 	}
 	
-	public WebElement quickView()
+	public WebElement myAccount()
 	{
-		return driver.findElement(quickView);
+		return driver.findElement(myAccount);
 	}
 
 	

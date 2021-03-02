@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-03-02T00:46:22 GMT" name="Suite" finished-at="2021-03-02T00:46:54 GMT" duration-ms="32165">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Com.Test.Avinash.TestRunner@5542c4ed]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2021-03-02T00:46:22 GMT" name="Test" finished-at="2021-03-02T00:46:54 GMT" duration-ms="32165">
+      <class name="Com.Test.Avinash.TestRunner">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Com.Test.Avinash.TestRunner@5542c4ed]" started-at="2021-03-02T00:46:22 GMT" name="setUpClass" finished-at="2021-03-02T00:46:22 GMT" duration-ms="302" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Com.Test.Avinash.TestRunner@5542c4ed]" started-at="2021-03-02T00:46:22 GMT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-02T00:46:44 GMT" duration-ms="21417" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["TC01 : Order T-Shirt"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Purchase T-shirt]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Com.Test.Avinash.TestRunner@5542c4ed]" started-at="2021-03-02T00:46:44 GMT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-02T00:46:54 GMT" duration-ms="10414" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["TC02: Update Personal Information First Name in My account"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Update Personal Info Feature]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Com.Test.Avinash.TestRunner@5542c4ed]" started-at="2021-03-02T00:46:54 GMT" name="tearDownClass" finished-at="2021-03-02T00:46:54 GMT" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- Com.Test.Avinash.TestRunner -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

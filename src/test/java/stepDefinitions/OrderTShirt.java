@@ -5,8 +5,13 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
 import io.cucumber.junit.Cucumber;
-//import pageObjects.HomePage;
+import pageObjects.Checkout;
+import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.OrderConfirmationPage;
+import pageObjects.OrderHistory;
+import pageObjects.PaymentPage;
+import pageObjects.Shipping;
 import resources.Base;
 
 import org.junit.runner.RunWith;
@@ -41,9 +46,8 @@ public class OrderTShirt extends Base {
 
     @When("^I click on tshirt option$")
     public void i_click_on_tshirt_option() throws Throwable {
-//    	HomePage hp=new HomePage(driver);
-    	
-    	  driver.findElement(By.linkText("WOMEN")).click();
+    	  HomePage hp=new HomePage(driver);
+    	  hp.selectTShirt().click();
 
     	  WebElement FirstImg=driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div[2]/ul/li[1]/div/div[1]/div/a[1]/img"));
     	  WebElement MoreBtn=driver.findElement(By.xpath("/html/body[1]/div[1]/div[2]/div[1]/div[3]/div[2]/ul/li[1]/div[1]/div[2]/div[2]/a[2]"));
@@ -51,48 +55,45 @@ public class OrderTShirt extends Base {
     	  actions.moveToElement(FirstImg).moveToElement(MoreBtn).click().perform();
     }
 
-    @When("^I select to proceed checkout$")
-    public void i_select_to_proceed_checkout() throws Throwable {
-    	
-
-    }
 
     @When("^I select to proceed checkout on summary page$")
-    public void i_select_to_proceed_checkout_on_summary_page() throws Throwable {
-    	driver.findElement(By.xpath("/html//div[@id='layer_cart']//a[@title='Proceed to checkout']/span")).click();
-  	  driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/p[2]/a[1]/span")).click();
-  	  driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/form/p/button/span")).click();
+    public void i_select_to_proceed_checkout_on_summary_page() throws Throwable { 	
+  	  	Checkout ch=new Checkout(driver);
+  	  	ch.checkout1().click();
+  	  	ch.checkout2().click();
+  	  	ch.checkout3().click();
 
     }
 
     @When("^I agree terms and condition$")
     public void i_agree_terms_and_condition() throws Throwable {
-  	  driver.findElement(By.xpath("//*[@id=\"cgv\"]")).click();
-  	  driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/form/p/button/span")).click();
+  	  		Shipping tc=new Shipping(driver);
+  	  		tc.checkbox().click();
+  	  		tc.submit().click();
 
     }
 
     @When("^I select PaybyChequeWire option$")
     public void i_select_paybybankwire_option() throws Throwable {
-    	driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/div[3]/div[2]/div/p/a")).click();
+	  		PaymentPage pc=new PaymentPage(driver);  	  	
+	  		pc.PaybyChequeWire().click();
 
     }
 
     @When("^I click on Back to Orders$")
     public void i_click_on_back_to_orders() throws Throwable {
-    	WebElement element = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
-    	element.click();
-    	WebElement element1 = driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/div[1]/ul/li[1]/a/span"));
-    	element1.click();
+    	OrderConfirmationPage oc=new OrderConfirmationPage(driver);
+    	oc.element().click();
+    	oc.element1().click();
+
     }
  
 
 
     @Then("^I should be on order confirmation page$")
     public void i_should_be_on_order_confirmation_page() throws Throwable {
-    	  String ConfirmationText=driver.findElement(By.xpath("//div[@id='center_column']/p[@class='alert alert-success']")).getText();
-    	  
-      	  if(ConfirmationText.contains("complete")) {
+    	  OrderConfirmationPage oc=new OrderConfirmationPage(driver);
+      	  if(oc.ConfirmationText().getText().contains("complete")) {
       	   System.out.println("Order Completed: Test Case Passed");
       	  }
       	  else {
@@ -103,10 +104,8 @@ public class OrderTShirt extends Base {
 
     @Then("^I should see order history$")
     public void i_should_see_order_history() throws Throwable {
-    	WebElement verify = driver.findElement(By.xpath("//*[@id=\"order-list\"]/tbody/tr[1]/td[1]/a"));
-    	String history = verify.getText();
-
-    	// Check whether input field is blank
+    	OrderHistory oh = new OrderHistory(driver);
+    	String history = oh.verify().getText();
     	if(history.isEmpty())
     	{
     	   System.out.println("history not available");
@@ -119,14 +118,16 @@ public class OrderTShirt extends Base {
 
     @And("^I add tshirt to add to cart$")
     public void i_add_tshirt_to_add_to_cart() throws Throwable {
-    	driver.findElement(By.xpath("//p[@id='add_to_cart']//span[.='Add to cart']")).click();
+  	  	Checkout ch=new Checkout(driver);
+  	  	ch.addToCart().click();
 
     }
 
 
     @And("^I confirm order$")
     public void i_confirm_order() throws Throwable {
-    	driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/form/p/button/span")).click();
+  		PaymentPage pc=new PaymentPage(driver);
+  		pc.confirmOrder().click();
 
     }
 
