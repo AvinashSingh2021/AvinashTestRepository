@@ -5,7 +5,7 @@ To work on this project, please follow the below steps :
 
 The test can be triggered by various methods
 - Select any feature, Right click and select 'Run as Cucumber feature' to run individual features
-- Right Click on project and select 'Run as TestNG Test'
+- Right Click on testng xml file and select 'Run as TestNG Suite'
 - Right Click on project and select 'Run as Maven Test' (as mentioned above as well)
 
 
