@@ -9,6 +9,11 @@ The test can be triggered by various methods
 - Right Click on project and select 'Run as Maven Test' 
 - Navigate to project folder in terminal and provide the command 'mvn test' (as mentioned above as well)
 
+Tools Required:
+1. Java - Install and set env variable path JAVA_HOME
+2. Maven - Install and set env variable path M2_HOME
+3. Test NG, Selenium and Cucumber Plugins
+4. IDE such as Eclipse
 
 
 Results can be printed as:
@@ -25,3 +30,5 @@ Results can be printed as:
 [INFO] Total time:  34.906 s
 [INFO] Finished at: 2021-03-02T00:46:55Z
 [INFO] ------------------------------------------------------------------------
+
+**Note: This project is developed on Mac system. **
